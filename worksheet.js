@@ -73,23 +73,27 @@ function iPutTheFunIn(string){
 
 // // obviously, you may not use the native .split() method. your task here is to reverse-engineer .split() and write your own. 
 function split(string, delimiter){
-    var splitArray = []
-    var newString = ''
+    var splitArray = [] //create an emptyarray which will store all the seperated words
+    var newString = '' // empty string to add words to up until it finds the delimiter
     for (var i = 0; i<string.length; i++){
-        if (string[i] !== delimiter){
-            newString += string[i]
+        if (string[i] !== delimiter){ //loop through each letter. if it's not the delimiter...
+            newString += string[i] //concatenate those letters and make them = the newString variable
         }
         else{
-            splitArray.push(newString)
-            newString = ''
+            splitArray.push(newString) //else once the delimiter is found, push it to the array.
+            newString = '' //clear the string. otherwise itll simply add on to the previous pushes, making each word longer and longer
         }
     }
-    splitArray.push(newString)
+    splitArray.push(newString) //push the final string for last word in array since no more delimeter
     return splitArray
 }
 
 // // PART 6: write a function called pipeline(). it should take three inputs: (1) a starting value, (2) a function, and (3) another function. it should use functions (2) and (3) on the starting value, one after the other, and return a new value that has been processed by both function (2) and function (3).
-
+function pipeline(startingVal, function1, function2){
+    var firstVal = function1(startingVal)
+    var finalVal = function2(firstVal)
+    return finalVal
+}
 // // visit test.js to see the tests that will be run against your code.
 
 
