@@ -72,7 +72,21 @@ function iPutTheFunIn(string){
 // // PART 5: write a function called split(). it should take two inputs: (1) a string and (2) a delimiter
 
 // // obviously, you may not use the native .split() method. your task here is to reverse-engineer .split() and write your own. 
-
+function split(string, delimiter){
+    var splitArray = []
+    var newString = ''
+    for (var i = 0; i<string.length; i++){
+        if (string[i] !== delimiter){
+            newString += string[i]
+        }
+        else{
+            splitArray.push(newString)
+            newString = ''
+        }
+    }
+    splitArray.push(newString)
+    return splitArray
+}
 
 // // PART 6: write a function called pipeline(). it should take three inputs: (1) a starting value, (2) a function, and (3) another function. it should use functions (2) and (3) on the starting value, one after the other, and return a new value that has been processed by both function (2) and function (3).
 
