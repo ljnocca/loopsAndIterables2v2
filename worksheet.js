@@ -1,9 +1,27 @@
 // PART 0: Write a function called squareDance() that squares each number in an array.
-
+function squareDance(array){
+    var newArray = []
+	for(var i=0; i<array.length; i++){
+        var newNumber = array[i]*array[i]
+		newArray.push(newNumber)
+	}
+    return newArray
+}
 
 // PART 1: write a function called nicer(). 
 // It should clean up the language in its input sentence. 
 // Forbidden words include heck, dang, crappy, and dang.
+
+function nicer(sentence){
+	var niceSentence = ''
+	var wordsArray = sentence.split(' ')
+	for (var i = 0; i<wordsArray.length; i++){
+		if ((wordsArray[i]!=='heck')&&(wordsArray[i]!=='dang')&&(wordsArray[i]!=='crappy')&&(wordsArray[i]!=='darn')){
+			niceSentence += wordsArray[i] + ' '
+		}
+	}
+	return niceSentence.trim()
+}
 
 
 // // PART 2: write a function called capitalizeAll(). 
