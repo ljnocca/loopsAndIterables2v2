@@ -15,12 +15,12 @@ function squareDance(array){
 function nicer(sentence){
 	var niceSentence = ''
 	var wordsArray = sentence.split(' ')
-	for (var i = 0; i<wordsArray.length; i++){
+	for (var i = 0; i<wordsArray.length; i++){ //in the Loop we will check if it is NOT one of the 'bad' words. this fixes the issue with blank spaces
 		if ((wordsArray[i]!=='heck')&&(wordsArray[i]!=='dang')&&(wordsArray[i]!=='crappy')&&(wordsArray[i]!=='darn')){
 			niceSentence += wordsArray[i] + ' '
 		}
 	}
-	return niceSentence.trim()
+	return niceSentence.trim() //trim removes the blank space at the end of string.
 }
 
 
@@ -28,12 +28,44 @@ function nicer(sentence){
 // It should take as input a sentence and capitalize the first letter
 // of every word in the sentence. 
 
+function capitalizeAll(sentence){
+    var wordsArray = sentence.split(' ')
+    var updatedSentence = ''
+    for (var i = 0; i<wordsArray.length; i++){
+        var firstLetter = wordsArray[i].substring(0,1) //isolate the first letter
+        var firstLetterCap = firstLetter.toUpperCase() //capitalize it
+        var restOfWord = wordsArray[i].substring(1) //isolate the rest of the word
+        updatedSentence += firstLetterCap + restOfWord + ' ' //concatenate those letters
+    }
+    return updatedSentence.trim() //trim the extra white space at the end of the sentence.
+}
+
 
 // // PART 3: write a function called properSentences(). It should take as input a string and capitalize the first letter of every sentence in that string. (For our purposes, all sentences will end with periods. Write one that works with ? and ! and receive a gratifying high five, right on the hand!)
-
+function properSentences(sentence){
+    var wordsArray = sentence.split('. ')
+    var updatedWord = ''
+    var updatedSentences = []
+    for (var i = 0; i<wordsArray.length; i++){
+        var firstLetter = wordsArray[i].substring(0,1)
+        var firstLetterCap = firstLetter.toUpperCase()
+        var restOfWord = wordsArray[i].substring(1)
+        updatedWord = firstLetterCap + restOfWord
+        updatedSentences.push(updatedWord)
+    }
+    var properSentence = updatedSentences.join('. ')
+    return properSentence
+}
 
 // // PART 4: write a function called iPutTheFunIn(). It should take a string as input. The output should be a copy of the original string with the word 'fun' inserted into the center of the string. 
-
+function iPutTheFunIn(string){
+    var wordsArray = string.split('') //split into an array
+    var wordHalfLength = wordsArray.length/2 //find the midpoint of the array
+    var firstHalf = string.substring(0,wordHalfLength) //split into first half
+    var secondHalf = string.substring(wordHalfLength) //and second half
+    var newWord = firstHalf + 'fun' + secondHalf //concatenate with 'fun' in the middle
+    return newWord
+}
 
 // // HARD MODE
 
